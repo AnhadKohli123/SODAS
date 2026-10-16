@@ -1,4 +1,5 @@
 REPO structure
+```
 SODAS/
 ├── README.md
 ├── requirements.txt
@@ -40,3 +41,4 @@ SODAS/
 │   └── explore.ipynb
 ├── runs/                       # gitignored, training outputs
 └── report/                     # CVPR-format LaTeX
+```

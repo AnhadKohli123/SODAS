@@ -1,1 +1,12 @@
 
+torch
+ultralytics
+sahi
+pycocotools
+numpy
+scipy
+pandas
+matplotlib
+pyyaml
+pillow
+pytest

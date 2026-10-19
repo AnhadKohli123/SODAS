@@ -1,1 +1,11 @@
+seeds: [0, 1]
+conf: 0.001
+passes: 3
+warmup: 5
+baselines: [640, 960, 1280]
+tile_sizes: [320, 512, 640, 800]
+overlaps: [0.2, 0.4]
+full_image: [false, true]
+merge: [GREEDYNMM]
+merge_ablation: [NMS]
 

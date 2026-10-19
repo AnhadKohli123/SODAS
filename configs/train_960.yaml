@@ -1,1 +1,9 @@
-
+model: yolov8s.pt
+data: configs/data_visdrone.yaml
+imgsz: 960
+epochs: 100
+batch: 8
+workers: 8
+patience: 30
+project: runs
+deterministic: true

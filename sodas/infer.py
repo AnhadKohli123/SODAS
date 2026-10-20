@@ -44,8 +44,8 @@ def make_predictor(model, cfg):
 def to_coco(iid, result):
     out = []
     for o in result.object_prediction_list:
-        x1, y1, x2, y2 = o.bbox.to_xyxy()
-        out.append({"image_id": iid, "category_id": o.category.id + 1, "bbox": [x1, y1, x2 - x1, y2 - y1], "score": o.score.value})
+        x1, y1, x2, y2 = (float(v) for v in o.bbox.to_xyxy())
+        out.append({"image_id": iid, "category_id": int(o.category.id) + 1, "bbox": [x1, y1, x2 - x1, y2 - y1], "score": float(o.score.value)})
     return out
 
 

@@ -1,1 +1,14 @@
-
+{
+  "640": {
+    "tile": 512,
+    "overlap": 0.2,
+    "full": true,
+    "merge": "GREEDYNMM"
+  },
+  "960": {
+    "tile": 640,
+    "overlap": 0.2,
+    "full": true,
+    "merge": "GREEDYNMM"
+  }
+}

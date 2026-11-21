@@ -1,0 +1,34 @@
+Efficiency eta = (AP_S tiled - AP_S standard) / (latency tiled - latency standard), AP_S points per ms
+model seed  setting                  eta vs standard at the model input size
+640    0     tile 320 o0.2          0.01  (399.5 ms)
+640    0     tile 320 o0.2 +full    0.01  (422.7 ms)
+640    0     tile 320 o0.4          0.00  (609.8 ms)
+640    0     tile 512 o0.2          0.07  (143.3 ms)
+640    0     tile 512 o0.2 +full    0.06  (167.9 ms)
+640    0     tile 640 o0.2          0.07  (118.6 ms)
+640    0     tile 640 o0.2 +full    0.06  (135.7 ms)
+640    0     tile 800 o0.2          0.24  (53.6 ms)
+640    0     tile 800 o0.2 +full    0.12  (78.7 ms)
+640    0     standard 1600 vs standard 640: eta = 0.35
+640    1     tile 512 o0.2          0.05  (183.1 ms)
+640    1     tile 512 o0.2 +full    0.04  (208.2 ms)
+640    1     tile 640 o0.2          0.05  (146.7 ms)
+640    1     tile 640 o0.2 +full    0.04  (174.1 ms)
+640    1     standard 1600 vs standard 640: eta = 0.17
+960    0     tile 512 o0.2          0.01  (321.1 ms)
+960    0     tile 512 o0.2 +full    0.01  (356.5 ms)
+960    0     tile 640 o0.2          0.02  (254.7 ms)
+960    0     tile 640 o0.2 +full    0.02  (285.1 ms)
+960    0     standard 1600 vs standard 960: eta = 0.14
+960    1     tile 512 o0.2          0.01  (333.2 ms)
+960    1     tile 512 o0.2 +full    0.01  (369.4 ms)
+960    1     tile 640 o0.2          0.02  (263.6 ms)
+960    1     tile 640 o0.2 +full    0.02  (300.1 ms)
+960    1     standard 1600 vs standard 960: eta = 0.14
+
+Cost model T = a + b * n (n = slices per image), least squares
+640 model seed 0, tiles 512-800    a=26.5 ms  b=16.2 ms  R2=0.97  max error=10 ms  (6 configs)
+640 model seed 0, tile 320         a=45.2 ms  b=21.8 ms  R2=1.00  max error=1 ms  (3 configs)
+640 model seed 1, tiles 512-640    a=72.4 ms  b=15.1 ms  R2=0.93  max error=8 ms  (4 configs)
+960 model seed 0                   a=114.3 ms  b=27.2 ms  R2=0.99  max error=5 ms  (4 configs)
+960 model seed 1                   a=122.0 ms  b=27.8 ms  R2=0.99  max error=6 ms  (4 configs)

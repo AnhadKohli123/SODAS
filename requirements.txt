@@ -1,6 +1,6 @@
-
-torch
-ultralytics
+torch>=2.11
+torchvision
+ultralytics>=8.4.182,<8.5
 sahi
 pycocotools
 numpy

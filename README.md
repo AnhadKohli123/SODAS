@@ -82,7 +82,7 @@ Then set `path:` in `configs/data_visdrone.yaml` to the absolute path of `data/y
 
 6. Freeze and score test-dev once: `python scripts/select_config.py`, then `python scripts/run_test_frozen.py`.
 
-7. Figures: `python figures/make_report_figures.py` draws the report's frontier and recall figures from `results/val/*.csv`; `figures/qualitative.py` draws qualitative crops (ground truth, standard and tiled detections for one image region). The two crop figures in the report were made from validation detections with this kind of script; the exact image names and crop boxes were not recorded, so they cannot be regenerated exactly.
+7. Analysis and figures: `python scripts/analysis.py` prints the efficiency values and the latency-versus-slices cost-model fits quoted in the report (from `results/val/*.csv`). Figures: `python figures/make_report_figures.py` draws the report's frontier and recall figures from `results/val/*.csv`; `figures/qualitative.py` draws qualitative crops (ground truth, standard and tiled detections for one image region). The two crop figures in the report were made from validation detections with this kind of script; the exact image names and crop boxes were not recorded, so they cannot be regenerated exactly.
 
 Latency is only comparable on the same GPU: run all timing on one machine and keep nothing else on the GPU.
 
@@ -92,7 +92,7 @@ SODAS/
 ├── README.md, run_all.sh, requirements.txt, .gitignore
 ├── configs/      data_visdrone.yaml, train_640.yaml, train_960.yaml, grid.yaml
 ├── scripts/      download_visdrone.sh, convert_visdrone.py, train.py, run_baselines.py,
-│                 run_sahi_grid.py, select_config.py, run_test_frozen.py
+│                 run_sahi_grid.py, select_config.py, run_test_frozen.py, analysis.py
 ├── sodas/        data.py, infer.py, latency.py, metrics.py, controls.py
 ├── tests/        test_identity_tiling.py, test_box_mapping.py
 ├── figures/      make_report_figures.py, qualitative.py
@@ -102,7 +102,12 @@ SODAS/
 `data/` and `runs/` are created locally and are not committed.
 
 ## Credits
-Ultralytics YOLOv8 (AGPL-3.0), SAHI (Akyon et al.), pycocotools, VisDrone dataset (Zhu et al.). The inference grid, protocol, size-binned recall, bootstrap and cost-model analysis are our own.
+- Ultralytics YOLOv8 (https://github.com/ultralytics/ultralytics, AGPL-3.0): detector, training code and the COCO-pretrained `yolov8s.pt` checkpoint we fine-tune from (pretrained on MS COCO, Lin et al., ECCV 2014).
+- SAHI (https://github.com/obss/sahi, Akyon et al., ICIP 2022): sliced inference and prediction merging.
+- pycocotools (https://github.com/cocodataset/cocoapi): COCO AP computation.
+- VisDrone2019-DET dataset (Zhu et al., https://github.com/VisDrone/VisDrone-Dataset), used under its own terms; we convert annotations and do not redistribute images.
+- PyTorch, NumPy, SciPy, pandas and matplotlib.
+Our own work: the experiment grid and protocol, latency timing, size-binned recall, config selection, frozen test-dev run, the bootstrap and cost-model analysis, and the figure scripts.
 
 ## AI declaration
 Claude (Anthropic) was used to help write and debug scripts, analyse results, and draft and typeset the report and slides. All experiments were run by the authors, and every reported number comes from the logs in this repository.

@@ -1,0 +1,16 @@
+3
+     99/100      7.82G      1.211     0.6859     0.8359        268        640: 100% ━━━━━━━━━━━━ 405/405 4.5it/s 1:30
+779.5s	134
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 18/18 3.8it/s 4.7s
+779.7s	135	                   all        548      38759      0.499        0.4      0.392      0.223
+780.0s	136
+780.0s	137	      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+870.4s	138
+    100/100      5.87G       1.21     0.6848     0.8366        303        640: 100% ━━━━━━━━━━━━ 405/405 4.5it/s 1:30
+875.2s	139
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 18/18 3.8it/s 4.8s
+875.4s	140	                   all        548      38759      0.497      0.401      0.391      0.223
+875.7s	141
+875.7s	142	8 epochs completed in 0.214 hours.
+875.8s	143	Optimizer stripped from /content/drive/MyDrive/SODAS_out/runs_s1/y8s_640_s1-2/weights/last.pt, 22.5MB
+877.5s	144	💡 Learn more at https://docs.ultralytics.com/modes/train

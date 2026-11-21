@@ -29,8 +29,8 @@ Val (548 images), AP small (seed 0 / seed 1), tiny-object recall R50 and median 
 
 | Model | Inference | AP small (s0 / s1) | Tiny R50 | Latency |
 |---|---|---|---|---|
-| 640 | standard 640 | 12.3 / 12.3 | 22.5 | 28.7 ms |
-| 640 | standard 1280 | 20.1 / 19.8 | 43.8 | 36.9 ms |
+| 640 | standard 640 | 12.3 / 12.3 | 22.4 | 28.7 ms |
+| 640 | standard 1280 | 20.1 / 19.8 | 43.7 | 36.9 ms |
 | 640 | tile 512 + full | 21.1 / 20.4 | 57.5 | 168 ms |
 | 960 | standard 960 | 18.8 / 18.8 | 37.8 | 36 ms |
 | 960 | standard 1600 | 23.7 / 23.5 | 51.1 | 70 ms |

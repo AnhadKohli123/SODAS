@@ -1,6 +1,13 @@
 data/
 runs/
 *.pt
+*.pth
+*.zip
+results/test/dets/
+results/val/dets/
 __pycache__/
+*.egg-info/
 .ipynb_checkpoints/
-results/*/dets/
+.env
+*token*
+ 

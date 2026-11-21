@@ -82,7 +82,7 @@ Then set `path:` in `configs/data_visdrone.yaml` to the absolute path of `data/y
 
 6. Freeze and score test-dev once: `python scripts/select_config.py`, then `python scripts/run_test_frozen.py`.
 
-7. Figures: `python figures/make_scatter.py` and `python figures/make_heatmap.py --res 640 --full 0` (and `--res 960`).
+7. Figures: `python figures/make_report_figures.py` draws the report's frontier and recall figures from `results/val/*.csv`; `figures/qualitative.py` draws qualitative crops (ground truth, standard and tiled detections for one image region). The two crop figures in the report were made from validation detections with this kind of script; the exact image names and crop boxes were not recorded, so they cannot be regenerated exactly.
 
 Latency is only comparable on the same GPU: run all timing on one machine and keep nothing else on the GPU.
 
@@ -95,7 +95,7 @@ SODAS/
 │                 run_sahi_grid.py, select_config.py, run_test_frozen.py
 ├── sodas/        data.py, infer.py, latency.py, metrics.py, controls.py
 ├── tests/        test_identity_tiling.py, test_box_mapping.py
-├── figures/      make_scatter.py, make_heatmap.py
+├── figures/      make_report_figures.py, qualitative.py
 ├── results/      val/ (grid.csv, baselines.csv), test/ (test.csv), frozen.json
 └── logs/         training results.csv files, train_640_s1_resume.txt
 ```

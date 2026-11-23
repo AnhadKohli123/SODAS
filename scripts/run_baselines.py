@@ -12,7 +12,7 @@ a = p.parse_args()
 g = yaml.safe_load(open("configs/grid.yaml"))
 gt = f"data/coco_json/{a.split}.json"
 imgs = f"data/yolo/{'test' if a.split == 'test' else a.split}/images"
-for imgsz in g["baselines"]:
+for imgsz in g["baselines"][a.res]:
     cfg = {"mode": "standard"}
     row, dets = run_config(weights_path(a.res, a.seed), imgsz, cfg, gt, imgs, g["passes"], g["warmup"], g["conf"])
     row.update(model_res=a.res, seed=a.seed, imgsz=imgsz, **cfg)

@@ -82,7 +82,7 @@ Then set `path:` in `configs/data_visdrone.yaml` to the absolute path of `data/y
 
 6. Freeze and score test-dev once: `python scripts/select_config.py`, then `python scripts/run_test_frozen.py`.
 
-7. Analysis and figures: `python scripts/analysis.py` prints the efficiency values and the latency-versus-slices cost-model fits quoted in the report (from `results/val/*.csv`). Figures: `python figures/make_report_figures.py` draws the report's frontier and recall figures from `results/val/*.csv`; `figures/qualitative.py` draws qualitative crops (ground truth, standard and tiled detections for one image region). The two crop figures in the report were made from validation detections with this kind of script; the exact image names and crop boxes were not recorded, so they cannot be regenerated exactly.
+7. Analysis and figures: `python scripts/analysis.py` prints the efficiency values and the latency-versus-slices cost-model fits quoted in the report (from `results/val/*.csv`). `python scripts/extra_analysis.py --perclass` recomputes, from the saved val detections of the 640 model (seed 0), the paired bootstrap intervals, the small-object recall and unmatched-detection counts at score 0.25, and the per-class mAP50 quoted in the report (the bootstrap resampling seed was not recorded for the report, so the interval ends can differ slightly in the second decimal). Figures: `python figures/make_report_figures.py` draws the report's frontier and recall figures from `results/val/*.csv`; `figures/qualitative.py` draws qualitative crops (ground truth, standard and tiled detections for one image region). The two crop figures in the report were made from validation detections with this kind of script; the exact image names and crop boxes were not recorded, so they cannot be regenerated exactly.
 
 Latency is only comparable on the same GPU: run all timing on one machine and keep nothing else on the GPU.
 
@@ -92,7 +92,7 @@ SODAS/
 ├── README.md, run_all.sh, requirements.txt, .gitignore
 ├── configs/      data_visdrone.yaml, train_640.yaml, train_960.yaml, grid.yaml
 ├── scripts/      download_visdrone.sh, convert_visdrone.py, train.py, run_baselines.py,
-│                 run_sahi_grid.py, select_config.py, run_test_frozen.py, analysis.py
+│                 run_sahi_grid.py, select_config.py, run_test_frozen.py, analysis.py, extra_analysis.py
 ├── sodas/        data.py, infer.py, latency.py, metrics.py, controls.py
 ├── tests/        test_identity_tiling.py, test_box_mapping.py
 ├── figures/      make_report_figures.py, qualitative.py

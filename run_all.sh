@@ -37,6 +37,7 @@ python scripts/select_config.py | tee logs/select_config.txt
 cat results/frozen.json
 python scripts/run_test_frozen.py 2>&1 | { grep -v 'ignoring invalid prediction' || true; } | tee logs/test_frozen.txt
 
+python scripts/analysis.py | tee logs/analysis.txt
 python figures/make_report_figures.py
 
 python - <<'PY'

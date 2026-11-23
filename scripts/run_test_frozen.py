@@ -11,7 +11,7 @@ imgs = "data/yolo/test/images"
 for res, fc in frozen.items():
     res = int(res)
     for seed in g["seeds"]:
-        cfgs = [(res, {"mode": "standard"}), (960, {"mode": "standard"}), (res, {"mode": "tiled", **fc})]
+        cfgs = [(sz, {"mode": "standard"}) for sz in g["test_baselines"][res]] + [(res, {"mode": "tiled", **fc})]
         for imgsz, cfg in cfgs:
             row, dets = run_config(weights_path(res, seed), imgsz, cfg, gt, imgs, g["passes"], g["warmup"], g["conf"])
             row.update(model_res=res, seed=seed, imgsz=imgsz, **cfg)

@@ -2,10 +2,14 @@ seeds: [0, 1]
 conf: 0.001
 passes: 3
 warmup: 5
-baselines: [640, 960, 1280]
+baselines:
+  640: [640, 960, 1280, 1600, 1920]
+  960: [960, 1280, 1600]
+test_baselines:
+  640: [640, 960, 1280, 1600]
+  960: [960, 1280, 1600]
 tile_sizes: [320, 512, 640, 800]
 overlaps: [0.2, 0.4]
 full_image: [false, true]
 merge: [GREEDYNMM]
 merge_ablation: [NMS]
-
